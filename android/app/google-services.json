@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "237412426748",
+    "firebase_url": "https://nutrifitpro-f6cfc-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "nutrifitpro-f6cfc",
+    "storage_bucket": "nutrifitpro-f6cfc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237412426748:android:106db07cc6a74950068879",
+        "android_client_info": {
+          "package_name": "com.example.nutri_fit_pro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5YJReS5rtzbl5upur5LgwgRnjgxRS8Fk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
