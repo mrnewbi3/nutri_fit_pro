@@ -1,0 +1,619 @@
+[
+    {
+        "foodName": "Pork Adobo",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "165",
+            "Protein": "14.93g",
+            "Fat": "9.4g",
+            "Carbs": "3.43g"
+        },
+        "imagePath": "assets/images/pork_adobo.png"
+    },
+    {
+        "foodName": "Chicken Adobo",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "141",
+            "Protein": "15.63g",
+            "Fat": "6.48g",
+            "Carbs": "3.27g"
+        },
+        "imagePath": "assets/images/chicken_adobo.png"
+    },
+    {
+        "foodName": "Sinigang na Baboy",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "165",
+            "Protein": "11.45g",
+            "Fat": "10.87g",
+            "Carbs": "4.97g"
+        },
+        "imagePath": "assets/images/sinigang_na_baboy.png"
+    },
+    {
+        "foodName": "Kare-Kare",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "144",
+            "Protein": "9.82g",
+            "Fat": "7.91g",
+            "Carbs": "9.24g"
+        },
+        "imagePath": "assets/images/kare-kare.png"
+    },
+    {
+        "foodName": "Lechon Manok",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "169",
+            "Protein": "23.3g",
+            "Fat": "7.36g",
+            "Carbs": "0.83g"
+        },
+        "imagePath": "assets/images/lechon_manok.png"
+    },
+    {
+        "foodName": "Pork Bicol Express",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "127",
+            "Protein": "8.72g",
+            "Fat": "7.95g",
+            "Carbs": "5.63g"
+        },
+        "imagePath": "assets/images/pork_bicol_express.png"
+    },
+    {
+        "foodName": "Chicken Tinola",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "108",
+            "Protein": "11.15g",
+            "Fat": "5.66g",
+            "Carbs": "2.82g"
+        },
+        "imagePath": "assets/images/chicken_tinola.png"
+    },
+    {
+        "foodName": "Pinakbet",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "102",
+            "Protein": "7.02g",
+            "Fat": "1.8g",
+            "Carbs": "17.92g"
+        },
+        "imagePath": "assets/images/pinakbet.png"
+    },
+    {
+        "foodName": "Apple",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "52",
+            "Protein": "0.26g",
+            "Fat": "0.17g",
+            "Carbs": "13.81g"
+        },
+        "imagePath": "assets/images/apple.png"
+    },
+    {
+        "foodName": "Banana",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "89",
+            "Protein": "1.09g",
+            "Fat": "0.33g",
+            "Carbs": "22.84g"
+        },
+        "imagePath": "assets/images/banana.png"
+    },
+    {
+        "foodName": "Orange",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "47",
+            "Protein": "0.94g",
+            "Fat": "0.12g",
+            "Carbs": "11.75g"
+        },
+        "imagePath": "assets/images/orange.png"
+    },
+    {
+        "foodName": "Broccoli",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "34",
+            "Protein": "2.82g",
+            "Fat": "0.37g",
+            "Carbs": "6.64g"
+        },
+        "imagePath": "assets/images/broccoli.png"
+    },
+    {
+        "foodName": "Carrot",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "41",
+            "Protein": "0.93g",
+            "Fat": "0.24g",
+            "Carbs": "9.58g"
+        },
+        "imagePath": "assets/images/carrot.png"
+    },
+    {
+        "foodName": "Spinach",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "23",
+            "Protein": "2.86g",
+            "Fat": "0.39g",
+            "Carbs": "3.63g"
+        },
+        "imagePath": "assets/images/spinach.png"
+    },
+    {
+        "foodName": "Mango",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "65",
+            "Protein": "0.51g",
+            "Fat": "0.27g",
+            "Carbs": "17g"
+        },
+        "imagePath": "assets/images/mango.png"
+    },
+    {
+        "foodName": "Pineapple",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "58",
+            "Protein": "0.54g",
+            "Fat": "0.12g",
+            "Carbs": "12.63g"
+        },
+        "imagePath": "assets/images/pineapple.png"
+    },
+    {
+        "foodName": "Papaya",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "44",
+            "Protein": "0.4g",
+            "Fat": "0.1g",
+            "Carbs": "8.6g"
+        },
+        "imagePath": "assets/images/papaya.png"
+    },
+    {
+        "foodName": "Coconut Juice",
+        "weights": "100ml",
+        "nutritionalContents": {
+            "Calories": "19",
+            "Protein": "0.75g",
+            "Fat": "0.2g",
+            "Carbs": "3.17g"
+        },
+        "imagePath": "assets/images/coconut.png"
+    },
+    {
+        "foodName": "Guava",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "68",
+            "Protein": "2.55g",
+            "Fat": "0.95g",
+            "Carbs": "14.32g"
+        },
+        "imagePath": "assets/images/guava.png"
+    },
+    {
+        "foodName": "Watermelon",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "30",
+            "Protein": "0.61g",
+            "Fat": "0.15g",
+            "Carbs": "7.55g"
+        },
+        "imagePath": "assets/images/watermelon.png"
+    },
+    {
+        "foodName": "Pomelo",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "38",
+            "Protein": "0.76g",
+            "Fat": "0.04g",
+            "Carbs": "9.62g"
+        },
+        "imagePath": "assets/images/pomelo.png"
+    },    
+    {
+        "foodName": "Avocado",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "160",
+            "Protein": "2g",
+            "Fat": "14.66g",
+            "Carbs": "8.54g"
+        },
+        "imagePath": "assets/images/avocado.png"
+    },
+    {
+        "foodName": "Rambutan",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "78",
+            "Protein": "0.62g",
+            "Fat": "0.2g",
+            "Carbs": "19.88g"
+        },
+        "imagePath": "assets/images/rambutan.png"
+    },
+    {
+        "foodName": "Durian",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "147",
+            "Protein": "1.47g",
+            "Fat": "5.33g",
+            "Carbs": "27.09g"
+        },
+        "imagePath": "assets/images/durian.png"
+    },
+    {
+        "foodName": "Jackfruit",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "94",
+            "Protein": "1.47g",
+            "Fat": "0.3g",
+            "Carbs": "24.01g"
+        },
+        "imagePath": "assets/images/jackfruit.png"
+    },
+    {
+        "foodName": "Chico (Sapodilla)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "83",
+            "Protein": "0.44g",
+            "Fat": "1.1g",
+            "Carbs": "19.96g"
+        },
+        "imagePath": "assets/images/chico.png"
+    },
+    {
+        "foodName": "Guyabano (Soursop)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "66",
+            "Protein": "1g",
+            "Fat": "0.3g",
+            "Carbs": "16.84g"
+        },
+        "imagePath": "assets/images/guyabano.png"
+    },
+    {
+        "foodName": "Lychee",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "66",
+            "Protein": "0.83g",
+            "Fat": "0.44g",
+            "Carbs": "16.53g"
+        },
+        "imagePath": "assets/images/lychee.png"
+    },
+    {
+        "foodName": "Dragon fruit",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "51",
+            "Protein": "0.78g",
+            "Fat": "0.38g",
+            "Carbs": "12.38g"
+        },
+        "imagePath": "assets/images/dragon fruit.png"
+    },
+    {
+        "foodName": "Santol",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "82",
+            "Protein": "0.4g",
+            "Fat": "0.56g",
+            "Carbs": "20.11g"
+        },
+        "imagePath": "assets/images/santol.png"
+    },
+    {
+        "foodName": "Calamansi",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "30",
+            "Protein": "0.13g",
+            "Fat": "0.05g",
+            "Carbs": "7.57g"
+        },
+        "imagePath": "assets/images/calamansi.png"
+    },
+    {
+        "foodName": "Eggplant (Talong)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "24",
+            "Protein": "1.01g",
+            "Fat": "0.19g",
+            "Carbs": "5.7g"
+        },
+        "imagePath": "assets/images/eggplant.png"
+    },
+    {
+        "foodName": "Tomato",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "18",
+            "Protein": "0.88g",
+            "Fat": "0.2g",
+            "Carbs": "3.92g"
+        },
+        "imagePath": "assets/images/tomato.png"
+    },
+    {
+        "foodName": "Okra",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "43",
+            "Protein": "1.92g",
+            "Fat": "2.32g",
+            "Carbs": "5.08g"
+        },
+        "imagePath": "assets/images/okra.png"
+    },
+    {
+        "foodName": "Bitter gourd (Ampalaya)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "29",
+            "Protein": "1.12g",
+            "Fat": "0.22g",
+            "Carbs": "6.82g"
+        },
+        "imagePath": "assets/images/ampalaya.png"
+    },
+    {
+        "foodName": "String beans (Sitaw)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "31",
+            "Protein": "1.82g",
+            "Fat": "0.12g",
+            "Carbs": "7.13g"
+        },
+        "imagePath": "assets/images/sitaw.png"
+    },
+    {
+        "foodName": "Winged bean (Sigarilyas)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "49",
+            "Protein": "6.95g",
+            "Fat": "0.87g",
+            "Carbs": "4.31g"
+        },
+        "imagePath": "assets/images/sigarilyas.png"
+    },
+    {
+        "foodName": "Kangkong (Water spinach)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "20",
+            "Protein": "2.51g",
+            "Fat": "0.34g",
+            "Carbs": "3.18g"
+        },
+        "imagePath": "assets/images/kangkong.png"
+    },
+    {
+        "foodName": "Squash (Kalabasa)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "25",
+            "Protein": "1.75g",
+            "Fat": "0.19g",
+            "Carbs": "3.68g"
+        },
+        "imagePath": "assets/images/squash.png"
+    },
+    {
+        "foodName": "Cabbage",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "24",
+            "Protein": "1.44g",
+            "Fat": "0.12g",
+            "Carbs": "5.58g"
+        },
+        "imagePath": "assets/images/cabage.png"
+    },
+    {
+        "foodName": "Baguio beans (French beans)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "35",
+            "Protein": "1.87g",
+            "Fat": "0.22g",
+            "Carbs": "7.92g"
+        },
+        "imagePath": "assets/images/baguio beans.png"
+    },    
+    {
+        "foodName": "Sayote (Chayote)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "17",
+            "Protein": "0.82g",
+            "Fat": "0.13g",
+            "Carbs": "3.9g"
+        },
+        "imagePath": "assets/images/sayote.png"
+    },
+    {
+        "foodName": "Pechay (Chinese cabbage)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "13",
+            "Protein": "1.5g",
+            "Fat": "0.2g",
+            "Carbs": "2.18g"
+        },
+        "imagePath": "assets/images/pechay.png"
+    },
+    {
+        "foodName": "Malunggay (Moringa)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "64",
+            "Protein": "7.96g",
+            "Fat": "0.91g",
+            "Carbs": "8.9g"
+        },
+        "imagePath": "assets/images/malunggay.png"
+    },
+    {
+        "foodName": "Sweet potato leaves (Talbos ng kamote)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "35",
+            "Protein": "4g",
+            "Fat": "0.3g",
+            "Carbs": "6.38g"
+        },
+        "imagePath": "assets/images/kamote leaves.png"
+    },
+    {
+        "foodName": "Lettuce",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "14",
+            "Protein": "0.9g",
+            "Fat": "0.14g",
+            "Carbs": "2.97g"
+        },
+        "imagePath": "assets/images/lettuce.png"
+    },
+    {
+        "foodName": "Bell pepper",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "31",
+            "Protein": "1g",
+            "Fat": "0.3g",
+            "Carbs": "6.03g"
+        },
+        "imagePath": "assets/images/bell pepper.png"
+    },
+    {
+        "foodName": "Cauliflower",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "25",
+            "Protein": "1.98g",
+            "Fat": "0.1g",
+            "Carbs": "5.3g"
+        },
+        "imagePath": "assets/images/cauliflower.png"
+    },
+    {
+        "foodName": "Sweet potato (Kamote)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "86",
+            "Protein": "1.57g",
+            "Fat": "0.05g",
+            "Carbs": "20.12g"
+        },
+        "imagePath": "assets/images/sweet potato.png"
+    },
+    {
+        "foodName": "Cassava (Kamoteng kahoy)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "160",
+            "Protein": "1.36g",
+            "Fat": "0.28g",
+            "Carbs": "38.06g"
+        },
+        "imagePath": "assets/images/cassava.png"
+    },
+    {
+        "foodName": "Taro (Gabi)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "112",
+            "Protein": "1.5g",
+            "Fat": "0.2g",
+            "Carbs": "26.46g"
+        },
+        "imagePath": "assets/images/gabi.png"
+    },
+    {
+        "foodName": "Yam (Ube)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "118",
+            "Protein": "1.53g",
+            "Fat": "0.17g",
+            "Carbs": "27.88g"
+        },
+        "imagePath": "assets/images/ube.png"
+    },
+    {
+        "foodName": "Jicama (Singkamas)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "38",
+            "Protein": "0.7g",
+            "Fat": "0.1g",
+            "Carbs": "8.8g"
+        },
+        "imagePath": "assets/images/singkamas.png"
+    },
+    {
+        "foodName": "Radish (Labanos)",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "16",
+            "Protein": "0.68g",
+            "Fat": "0.1g",
+            "Carbs": "3.4g"
+        },
+        "imagePath": "assets/images/labanos.png"
+    },
+    {
+        "foodName": "Potato",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "77",
+            "Protein": "2.2g",
+            "Fat": "0.1g",
+            "Carbs": "15.4g"
+        },
+        "imagePath": "assets/images/potato.png"
+    },
+    {
+        "foodName": "Beetroot",
+        "weights": "100g",
+        "nutritionalContents": {
+            "Calories": "58",
+            "Protein": "2.19g",
+            "Fat": "0.23g",
+            "Carbs": "13g"
+        },
+        "imagePath": "assets/images/beetroot.png"
+    }
+    ]
+    
