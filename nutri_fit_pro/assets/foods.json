@@ -619,9 +619,9 @@
         "foodName": "Beef (Lean)",
         "weights": "100g",
         "nutritionalContents": {
-            "Calories": "250",
-            "Protein": "25.6g",
-            "Fat": "15.4g",
+            "Calories": "212",
+            "Protein": "29.46g",
+            "Fat": "9.55g",
             "Carbs": "0g"
         },
         "imagePath": "assets/images/beef.png"
@@ -629,9 +629,9 @@
         "foodName": "Chicken Breast",
         "weights": "100g",
         "nutritionalContents": {
-            "Calories": "165",
-            "Protein": "31g",
-            "Fat": "3.6g",
+            "Calories": "195",
+            "Protein": "29.55g",
+            "Fat": "7.72g",
             "Carbs": "0g"
         },
         "imagePath": "assets/images/chicken_breast.png"
@@ -639,9 +639,9 @@
         "foodName": "Salmon",
         "weights": "100g",
         "nutritionalContents": {
-            "Calories": "206",
-            "Protein": "20.4g",
-            "Fat": "13.4g",
+            "Calories": "146",
+            "Protein": "21.62g",
+            "Fat": "5.93g",
             "Carbs": "0g"
         },
         "imagePath": "assets/images/salmon.png"
@@ -649,10 +649,10 @@
         "foodName": "Brown Rice",
         "weights": "100g",
         "nutritionalContents": {
-            "Calories": "111",
+            "Calories": "215",
             "Protein": "2.6g",
-            "Fat": "0.9g",
-            "Carbs": "23.5g"
+            "Fat": "4.99g",
+            "Carbs": "44.42g"
         },
         "imagePath": "assets/images/brown_rice.png"
     },
@@ -660,19 +660,19 @@
         "foodName": "Pork (Tenderloin)",
         "weights": "100g",
         "nutritionalContents": {
-            "Calories": "143",
-            "Protein": "22g",
-            "Fat": "6g",
+            "Calories": "136",
+            "Protein": "20.54g",
+            "Fat": "5.41g",
             "Carbs": "0g"
         },
         "imagePath": "assets/images/pork_tenderloin.png"
     },{
         "foodName": "Chicken Thigh (Skinless)",
-        "weights": "100g",
+        "weights": "1 small",
         "nutritionalContents": {
-            "Calories": "209",
-            "Protein": "24g",
-            "Fat": "12g",
+            "Calories": "95",
+            "Protein": "4.96g",
+            "Fat": "11.83g",
             "Carbs": "0g"
         },
         "imagePath": "assets/images/chicken_thigh.png"
@@ -680,10 +680,10 @@
         "foodName": "Beef (Ground)",
         "weights": "100g",
         "nutritionalContents": {
-            "Calories": "250",
-            "Protein": "25g",
-            "Fat": "18g",
-            "Carbs": "0g"
+            "Calories": "172",
+            "Protein": "18.6g",
+            "Fat": "9.4g",
+            "Carbs": "3g"
         },
         "imagePath": "assets/images/ground_beef.png"
     },{
@@ -691,8 +691,8 @@
         "weights": "100g",
         "nutritionalContents": {
             "Calories": "518",
-            "Protein": "11g",
-            "Fat": "55g",
+            "Protein": "9.34g",
+            "Fat": "53.01g",
             "Carbs": "0g"
         },
         "imagePath": "assets/images/pork_belly.png"
@@ -700,9 +700,9 @@
         "foodName": "Chicken Drumstick (Skinless)",
         "weights": "100g",
         "nutritionalContents": {
-            "Calories": "172",
-            "Protein": "28g",
-            "Fat": "6g",
+            "Calories": "171",
+            "Protein": "28.05g",
+            "Fat": "5.61g",
             "Carbs": "0g"
         },
         "imagePath": "assets/images/chicken_drumstick.png"
@@ -710,9 +710,9 @@
         "foodName": "Roast Beef",
         "weights": "100g",
         "nutritionalContents": {
-            "Calories": "250",
-            "Protein": "25g",
-            "Fat": "15g",
+            "Calories": "198",
+            "Protein": "28.32g",
+            "Fat": "8.52g",
             "Carbs": "0g"
         },
         "imagePath": "assets/images/roast_beef.png"
@@ -720,9 +720,9 @@
         "foodName": "Grilled Chicken Breast",
         "weights": "100g",
         "nutritionalContents": {
-            "Calories": "165",
-            "Protein": "31g",
-            "Fat": "3.6g",
+            "Calories": "164",
+            "Protein": "30.76g",
+            "Fat": "3.54g",
             "Carbs": "0g"
         },
         "imagePath": "assets/images/grilled_chicken_breast.png"
@@ -730,19 +730,19 @@
         "foodName": "Beef Bulalo",
         "weights": "100g",
         "nutritionalContents": {
-            "Calories": "250",
-            "Protein": "26g",
-            "Fat": "15g",
-            "Carbs": "0g"
+            "Calories": "386",
+            "Protein": "60.33g",
+            "Fat": "11.33g",
+            "Carbs": "8.18g"
         },
         "imagePath": "assets/images/beef_bulalo.png"
     },{
         "foodName": "Grilled Pork Chop",
         "weights": "100g",
         "nutritionalContents": {
-            "Calories": "242",
-            "Protein": "24g",
-            "Fat": "16g",
+            "Calories": "240",
+            "Protein": "27.09g",
+            "Fat": "13.8g",
             "Carbs": "0g"
         },
         "imagePath": "assets/images/grilled_pork_chop.png"
@@ -750,10 +750,10 @@
         "foodName": "Fried Chicken Wings",
         "weights": "100g",
         "nutritionalContents": {
-            "Calories": "203",
-            "Protein": "27g",
-            "Fat": "10g",
-            "Carbs": "0g"
+            "Calories": "326",
+            "Protein": "20.11g",
+            "Fat": "21.8g",
+            "Carbs": "11.04g"
         },
         "imagePath": "assets/images/fried_chicken_wings.png"
     },
@@ -761,111 +761,101 @@
         "foodName": "Palitaw",
         "weights": "100g",
         "nutritionalContents": {
-          "Calories": "150",
-          "Protein": "2g",
-          "Fat": "5g",
-          "Carbs": "25g"
+          "Calories": "263",
+          "Protein": "4.28g",
+          "Fat": "1.56g",
+          "Carbs": "56.53g"
         },
         "imagePath": "assets/images/palitaw.png"
       },{
         "foodName": "Taho",
         "weights": "100g",
         "nutritionalContents": {
-          "Calories": "80",
-          "Protein": "2g",
-          "Fat": "1g",
-          "Carbs": "15g"
+          "Calories": "149",
+          "Protein": "2.26g",
+          "Fat": "1.26g",
+          "Carbs": "32.37g"
         },
         "imagePath": "assets/images/taho.png"
-      }, {
-        "foodName": "Halo-Halo",
-        "weights": "100g",
-        "nutritionalContents": {
-          "Calories": "150",
-          "Protein": "1g",
-          "Fat": "3g",
-          "Carbs": "30g"
-        },
-        "imagePath": "assets/images/halo_halo.png"
       }, {
         "foodName": "Ensaymada",
         "weights": "100g",
         "nutritionalContents": {
-          "Calories": "300",
-          "Protein": "5g",
-          "Fat": "15g",
-          "Carbs": "35g"
+          "Calories": "340",
+          "Protein": "9.51g",
+          "Fat": "14.58g",
+          "Carbs": "42.66g"
         },
         "imagePath": "assets/images/ensaymada.png"
       }, {
         "foodName": "Pan de Coco",
         "weights": "100g",
         "nutritionalContents": {
-          "Calories": "250",
-          "Protein": "4g",
-          "Fat": "10g",
-          "Carbs": "35g"
+          "Calories": "222",
+          "Protein": "5.65g",
+          "Fat": "4.54 g",
+          "Carbs": "39.55g"
         },
         "imagePath": "assets/images/pan_de_coco.png"
       }, {
         "foodName": "Spanish Bread",
         "weights": "100g",
         "nutritionalContents": {
-          "Calories": "280",
-          "Protein": "5g",
-          "Fat": "12g",
-          "Carbs": "35g"
+          "Calories": "284",
+          "Protein": "6.87g",
+          "Fat": "7g",
+          "Carbs": "48.05g"
         },
         "imagePath": "assets/images/spanish_bread.png"
       }, {
         "foodName": "Pandesal",
         "weights": "100g",
         "nutritionalContents": {
-          "Calories": "270",
-          "Protein": "6g",
-          "Fat": "10g",
-          "Carbs": "35g"
+          "Calories": "307",
+          "Protein": "7.71g",
+          "Fat": "5.81g",
+          "Carbs": "55.21g"
         },
         "imagePath": "assets/images/pandesal.png"
       },
       {
-        "foodName": "Empanada",
+        "foodName": "Chicken Empanada",
         "weights": "100g",
         "nutritionalContents": {
-          "Calories": "300",
-          "Protein": "7g",
-          "Fat": "15g",
-          "Carbs": "35g"
+          "Calories": "262",
+          "Protein": "8.8g",
+          "Fat": "14.84g",
+          "Carbs": "22.8g"
         },
         "imagePath": "assets/images/empanada.png"
       }, {
         "foodName": "Cinnamon Rolls",
         "weights": "100g",
         "nutritionalContents": {
-          "Calories": "320",
+          "Calories": "333",
           "Protein": "5g",
-          "Fat": "12g",
-          "Carbs": "45g"
+          "Fat": "12.2g",
+          "Carbs": "51.6g"
         },
         "imagePath": "assets/images/cinnamon_rolls.png"
       }, {
-        "foodName": "Hopiang Baboy",
+        "foodName": "Hopia",
         "weights": "100g",
         "nutritionalContents": {
-          "Calories": "280",
-          "Protein": "6g",
-          "Fat": "10g",
-          "Carbs": "40g"
+          "Calories": "299",
+          "Protein": "9.61g",
+          "Fat": "7.91g",
+          "Carbs": "47.68g"
         },
         "imagePath": "assets/images/hopiang_baboy.png"
       }, {
         "foodName": "Fried Peanuts",
         "weights": "100g",
         "nutritionalContents": {
-          "Calories": "170",
-          "Protein": "7g",
-          "Fat": "15g",
-          "Carbs": "5g"
+          "Calories": "567",
+          "Protein": "25.8g",
+          "Fat": "49.24g",
+          "Carbs": "16.13g"
         },
         "imagePath": "assets/images/fried_peanuts.png"
       }                                           
