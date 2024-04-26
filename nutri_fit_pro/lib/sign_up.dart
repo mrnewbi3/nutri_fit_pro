@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:nutri_fit_pro/auth/firebase_auth_implementation/firebase_auth_service.dart';
+import 'package:flutter/services.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -19,8 +21,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
   bool _isLoading = false;
-
-  final FirebaseAuthService _auth = FirebaseAuthService();
+  final FirebaseAuthService _auth = FirebaseAuthService(); // Updated: Use the correct method names
 
   @override
   void dispose() {
@@ -51,20 +52,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 2.0),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 2.0),
                     child: Row(
                       children: [
-                        const Text(
+                        Text(
                           "Create Account",
                           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, fontFamily: 'Signika', color: Color.fromARGB(255, 0, 0, 0)),
-                        ),
-                        const SizedBox(width: 1),
-                        Image.asset(
-                          'assets/images/sign.jpg',
-                          height: 130,
-                          width: 130,
-                        ),
+                        )
                       ],
                     ),
                   ),
@@ -76,7 +71,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Username", style: Theme.of(context).textTheme.bodyText1),
+                          Text("Username", style: Theme.of(context).textTheme.bodyLarge),
                           const SizedBox(height: 2),
                           TextFormField(
                             controller: userNameController,
@@ -86,7 +81,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           ),
                           const SizedBox(height: 2),
-                          Text("Email", style: Theme.of(context).textTheme.bodyText1),
+                          Text("Email", style: Theme.of(context).textTheme.bodyLarge),
                           const SizedBox(height: 2),
                           TextFormField(
                             controller: emailController,
@@ -96,7 +91,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           ),
                           const SizedBox(height: 2),
-                          Text("Create a password", style: Theme.of(context).textTheme.bodyText1),
+                          Text("Create a password", style: Theme.of(context).textTheme.bodyLarge),
                           const SizedBox(height: 2),
                           TextFormField(
                             controller: passwordController,
@@ -115,7 +110,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           ),
                           const SizedBox(height: 2),
-                          Text("Confirm password", style: Theme.of(context).textTheme.bodyText1),
+                          Text("Confirm password", style: Theme.of(context).textTheme.bodyLarge),
                           const SizedBox(height: 2),
                           TextFormField(
                             controller: confirmPasswordController,
@@ -134,25 +129,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           ),
                           const SizedBox(height: 2),
-                          Row(
-                            children: [
-                              Checkbox(
-                                value: termsAndPrivacySection,
-                                onChanged: (value) {
-                                  setState(() {
-                                    termsAndPrivacySection = value ?? false;
-                                  });
-                                },
-                              ),
-                              Flexible(
-                                child: Text(
-                                  "I accept the terms and privacy policy",
-                                  style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 14),
+                          GestureDetector(
+                            onTap: () {
+                              _showTermsAndConditionsDialog(context);
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Checkbox(
+                                  value: termsAndPrivacySection,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      termsAndPrivacySection = value ?? false;
+                                    });
+                                  },
                                 ),
-                              ),
-                            ],
+                                Flexible(
+                                  child: Text(
+                                    "Terms and Privacy policy",
+                                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                                      fontSize: 14,
+                                      color: const Color(0xFFED7A0D),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                          const SizedBox(height: 20),
                           SizedBox(
                             width: double.infinity,
                             child: FloatingActionButton(
@@ -209,6 +213,37 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
+  Future<void> _showTermsAndConditionsDialog(BuildContext context) async {
+    String termsAndConditionsText = await rootBundle.loadString('assets/terms_and_conditions.txt');
+
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Terms and Privacy Policy'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text(termsAndConditionsText),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text(
+                'Accept',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   void _signUp(BuildContext context) async {
     setState(() {
       _isLoading = true;
@@ -220,17 +255,32 @@ class _SignUpScreenState extends State<SignUpScreen> {
       String confirmPassword = confirmPasswordController.text;
 
       if (password != confirmPassword) {
-        // Show an error message indicating that passwords do not match
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text("Passwords do not match"),
+        ));
+        setState(() {
+          _isLoading = false;
+        });
         return;
       }
 
       try {
-        await _auth.signUpwithEmailAndPassword(email, password);
-        print("User successfully created");
+        // Call signUpWithEmailAndPassword method from FirebaseAuthService
+        await _auth.signUpWithEmailAndPassword(email, password); // Updated: Use the correct method name
+
+        // Save username to Firestore
+        await FirebaseFirestore.instance.collection('users').doc(_auth.getCurrentUser()!.uid).set({
+          'username': userNameController.text.trim(),
+          // Add more user information here if needed
+        });
+
+        // Navigate to home page after successful sign-up
         Navigator.pushNamed(context, "/homepage");
       } catch (e) {
-        // Handle specific exceptions thrown by Firebase Auth
         print("Error signing up: $e");
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text("Error signing up: $e"),
+        ));
       } finally {
         setState(() {
           _isLoading = false;

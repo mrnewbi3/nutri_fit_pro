@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-//import 'package:provider/provider.dart';
-//import 'username_provider.dart'; // Import the UsernameProvider
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class BMICalculatorScreen extends StatefulWidget {
   const BMICalculatorScreen({Key? key}) : super(key: key);
@@ -8,7 +8,10 @@ class BMICalculatorScreen extends StatefulWidget {
   @override
   _BMICalculatorScreenState createState() => _BMICalculatorScreenState();
 }
+ // Add Firestore instance
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
+  
 class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
   TextEditingController weightController = TextEditingController();
   TextEditingController heightController = TextEditingController();
@@ -27,6 +30,32 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
   void calculateBMI() {
     String weightText = weightController.text.trim();
     String heightText = heightController.text.trim();
+// Assuming you have access to the user's ID, replace 'user_id' with the actual user ID
+String userId = FirebaseAuth.instance.currentUser!.uid;
+
+  // Check if the document exists before updating it
+_firestore.collection('users').doc(userId).get().then((DocumentSnapshot document) {
+  if (document.exists) {
+    // Document exists, update its fields
+    _firestore.collection('users').doc(userId).update({
+      'bmiResult': bmiResult.toStringAsFixed(2),
+      'bmiStatus': bmiStatus,
+      // Add other preferences here if needed
+    });
+  } else {
+    // Document doesn't exist, create it with the required fields
+    _firestore.collection('users').doc(userId).set({
+      'bmiResult': bmiResult.toStringAsFixed(2),
+      'bmiStatus': bmiStatus,
+      // Add other preferences here if needed
+    });
+  }
+}).catchError((error) {
+  // Handle any errors that occur during the process
+  print("Error: $error");
+});
+
+  
 
     if (weightText.isEmpty || heightText.isEmpty) {
       // Show alert dialog if any field is empty
