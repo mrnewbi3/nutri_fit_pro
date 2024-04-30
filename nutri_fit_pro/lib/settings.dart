@@ -43,10 +43,10 @@ class ProfileScreen extends StatelessWidget {
                           future: FirebaseFirestore.instance.collection('users').doc(FirebaseAuth.instance.currentUser!.uid).get(),
                           builder: (context, snapshot) {
                             if (snapshot.connectionState == ConnectionState.waiting) {
-                              return CircularProgressIndicator();
+                              return const CircularProgressIndicator();
                             }
                             if (snapshot.hasError || !snapshot.hasData || !snapshot.data!.exists) {
-                              return Text('Error fetching user data');
+                              return const Text('Error fetching user data');
                             }
 
                             var userData = snapshot.data!.data() as Map<String, dynamic>;
@@ -77,12 +77,12 @@ class ProfileScreen extends StatelessWidget {
                                 const SizedBox(height: 15),
                                 Text(
                                   username,
-                                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                                 ),
                                 if (bmiResult != null && bmiStatus != null)
                                   Text(
                                     '$bmiResult | $bmiStatus',
-                                    style: TextStyle(fontSize: 16, color: Colors.grey),
+                                    style: const TextStyle(fontSize: 16, color: Colors.grey),
                                   ),
                               ],
                             );

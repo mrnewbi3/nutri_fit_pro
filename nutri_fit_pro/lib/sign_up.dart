@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:nutri_fit_pro/auth/firebase_auth_implementation/firebase_auth_service.dart';
@@ -255,7 +257,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       String confirmPassword = confirmPasswordController.text;
 
       if (password != confirmPassword) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text("Passwords do not match"),
         ));
         setState(() {

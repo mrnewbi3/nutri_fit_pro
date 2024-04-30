@@ -2,7 +2,7 @@
 
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:nutri_fit_pro/on_boarding.dart';
+//import 'package:nutri_fit_pro/on_boarding.dart';
 import 'package:nutri_fit_pro/log_in.dart';
 import 'package:nutri_fit_pro/homepage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -21,8 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     navigateToNextScreen();
   }
-
-  Future<void> navigateToNextScreen() async {
+Future<void> navigateToNextScreen() async {
   try {
     // Delay for 5 seconds to display the splash screen
     await Future.delayed(const Duration(seconds: 5));
@@ -32,32 +31,26 @@ class _SplashScreenState extends State<SplashScreen> {
 
     print('isFirstInstall: $isFirstInstall');
 
-    if (isFirstInstall) {
-  // Navigate to OnboardingScreen
-  Navigator.of(context).push(
-    MaterialPageRoute(builder: (context) => const OnboardingScreen()),
-  );
-} else {
-  // Check user login status and navigate accordingly
-  User? user = FirebaseAuth.instance.currentUser;
-  if (user == null) {
-    // User is not logged in, navigate to LogInScreen
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (context) => const LogInScreen()),
-    );
-  } else {
-    // User is logged in, navigate to HomePage
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (context) => const HomePage()),
-    );
-  }
-}
-
+    // Remove the if condition for isFirstInstall
+    // Navigate to the appropriate screen based on user login status
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      // User is not logged in, navigate to LogInScreen
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const LogInScreen()),
+      );
+    } else {
+      // User is logged in, navigate to HomePage
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const HomePage()),
+      );
+    }
   } catch (e) {
     print('Error navigating to next screen: $e');
     // Handle error (e.g., show an error dialog)
   }
 }
+
 
 
   @override

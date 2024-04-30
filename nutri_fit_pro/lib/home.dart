@@ -1,11 +1,11 @@
-// ignore_for_file: unused_element, avoid_print
+// ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'search_result.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore
+import 'package:firebase_auth/firebase_auth.dart'; // Import FirebaseAuth
+import 'package:nutri_fit_pro/search_result.dart';
 class Food {
   final String foodName;
   final String imagePath;
@@ -40,16 +40,26 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     _loadFoods(); // Load foods when the screen initializes
-    _loadFavorites(); // Load favorites from shared preferences
+    _loadFavorites(); // Load favorites from Firestore
   }
 
   Future<void> _loadFavorites() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> favoriteFoodNames = prefs.getStringList('favoriteFoodNames') ?? [];
-    List<Food> loadedFavorites = allFoods.where((food) => favoriteFoodNames.contains(food.foodName)).toList();
-    setState(() {
-      favoriteFoods = loadedFavorites;
-    });
+    final userId = FirebaseAuth.instance.currentUser!.uid;
+
+    try {
+      final favoritesSnapshot = await FirebaseFirestore.instance.collection('users').doc(userId).collection('favorites').get();
+
+      setState(() {
+        favoriteFoods = favoritesSnapshot.docs.map((doc) => Food(
+          foodName: doc['foodName'],
+          imagePath: doc['imagePath'],
+          weights: doc['weights'],
+          nutritionalContents: Map<String, String>.from(doc['nutritionalContents']),
+        )).toList();
+      });
+    } catch (e) {
+      print('Error loading favorites: $e');
+    }
   }
 
   Future<void> _loadFoods() async {
@@ -69,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     List<Food> filteredFavorites = favoriteFoods
         .where((food) =>
-            food.foodName.toLowerCase().contains(_searchController.text.toLowerCase()))
+        food.foodName.toLowerCase().contains(_searchController.text.toLowerCase()))
         .toList();
 
     return Padding(
@@ -230,19 +240,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildFoodList(List<Food> foods, {Axis scrollDirection = Axis.horizontal}) {
-    return SingleChildScrollView(
-      scrollDirection: scrollDirection,
-      child: Row(
-        children: foods.map((food) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: _buildFoodCard(food),
-          );
-        }).toList(),
-      ),
-    );
-  }
 
   Widget _buildFoodCard(Food food) {
     return GestureDetector(
@@ -297,8 +294,6 @@ class _HomeScreenState extends State<HomeScreen> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        bool isFavorite = favoriteFoods.contains(food);
-
         return AlertDialog(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
@@ -346,7 +341,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             IconButton(
-                              icon: isFavorite ? const Icon(Icons.favorite, color: Color.fromARGB(255, 243, 145, 33)) : const Icon(Icons.favorite_border),
+                              icon: favoriteFoods.contains(food) ? const Icon(Icons.favorite, color: Color.fromARGB(255, 243, 145, 33)) : const Icon(Icons.favorite_border),
                               onPressed: () {
                                 _addToFavorites(food);
                                 Navigator.of(context).pop(); // Close the AlertDialog after adding to favorites
@@ -368,7 +363,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: food.nutritionalContents.entries
                               .map(
                                 (entry) => Text('${entry.key}: ${entry.value}'),
-                              )
+                          )
                               .toList(),
                         ),
                       ],
@@ -384,20 +379,26 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _addToFavorites(Food food) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> favoriteFoodNames = prefs.getStringList('favoriteFoodNames') ?? [];
+    final userId = FirebaseAuth.instance.currentUser!.uid;
 
-    setState(() {
-      if (favoriteFoods.contains(food)) {
-        favoriteFoods.remove(food);
-        favoriteFoodNames.remove(food.foodName); // Remove from saved favorites
+    try {
+      final favoritesRef = FirebaseFirestore.instance.collection('users').doc(userId).collection('favorites');
+
+      final docSnapshot = await favoritesRef.doc(food.foodName).get();
+
+      if (docSnapshot.exists) {
+        await favoritesRef.doc(food.foodName).delete();
       } else {
-        favoriteFoods.add(food);
-        favoriteFoodNames.add(food.foodName); // Add to saved favorites
+        await favoritesRef.doc(food.foodName).set({
+          'foodName': food.foodName,
+          'imagePath': food.imagePath,
+          'weights': food.weights,
+          'nutritionalContents': food.nutritionalContents,
+        });
       }
-    });
-
-    await prefs.setStringList('favoriteFoodNames', favoriteFoodNames);
+    } catch (e) {
+      print('Error adding/removing favorite: $e');
+    }
   }
 
   void _search(String searchTerm) async {
@@ -412,7 +413,7 @@ class _HomeScreenState extends State<HomeScreen> {
       if (selectedFood != null && !favoriteFoods.contains(selectedFood)) {
         setState(() {
           favoriteFoods.add(selectedFood); // Add selected food to favorites
-          _addToFavorites(selectedFood); // Save to SharedPreferences
+          _addToFavorites(selectedFood); // Save to Firestore
         });
       }
     }

@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore
+import 'package:firebase_auth/firebase_auth.dart'; // Import FirebaseAuth
 
 class SearchResultScreen extends StatefulWidget {
   final String searchTerm;
@@ -237,28 +238,55 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
   );
 }
 
-
   void _addToFavorites(Food food) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> favoriteFoodNames = prefs.getStringList('favoriteFoodNames') ?? [];
-    if (!favoriteFoodNames.contains(food.foodName)) {
-      favoriteFoodNames.add(food.foodName); // Add to saved favorites
-      await prefs.setStringList('favoriteFoodNames', favoriteFoodNames);
+    final userId = FirebaseAuth.instance.currentUser!.uid;
+
+    try {
+      final favoritesRef = FirebaseFirestore.instance.collection('users').doc(userId).collection('favorites');
+
+      final docSnapshot = await favoritesRef.doc(food.foodName).get();
+
+      if (!docSnapshot.exists) {
+        await favoritesRef.doc(food.foodName).set({
+          'foodName': food.foodName,
+          'imagePath': food.imagePath,
+          'weights': food.weights,
+          'nutritionalContents': food.nutritionalContents,
+        });
+      }
+    } catch (e) {
+      print('Error adding to favorites: $e');
     }
   }
 
   void _removeFromFavorites(Food food) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> favoriteFoodNames = prefs.getStringList('favoriteFoodNames') ?? [];
-    if (favoriteFoodNames.contains(food.foodName)) {
-      favoriteFoodNames.remove(food.foodName); // Remove from saved favorites
-      await prefs.setStringList('favoriteFoodNames', favoriteFoodNames);
+    final userId = FirebaseAuth.instance.currentUser!.uid;
+
+    try {
+      final favoritesRef = FirebaseFirestore.instance.collection('users').doc(userId).collection('favorites');
+
+      final docSnapshot = await favoritesRef.doc(food.foodName).get();
+
+      if (docSnapshot.exists) {
+        await favoritesRef.doc(food.foodName).delete();
+      }
+    } catch (e) {
+      print('Error removing from favorites: $e');
     }
   }
 
   Future<bool> _isFavorite(Food food) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    List<String> favoriteFoodNames = prefs.getStringList('favoriteFoodNames') ?? [];
-    return favoriteFoodNames.contains(food.foodName);
+    final userId = FirebaseAuth.instance.currentUser!.uid;
+
+    try {
+      final favoritesRef = FirebaseFirestore.instance.collection('users').doc(userId).collection('favorites');
+
+      final docSnapshot = await favoritesRef.doc(food.foodName).get();
+
+      return docSnapshot.exists;
+    } catch (e) {
+      print('Error checking favorite: $e');
+      return false;
+    }
   }
 }
