@@ -9,7 +9,7 @@ import 'package:firebase_auth/firebase_auth.dart'; // Import FirebaseAuth
 class SearchResultScreen extends StatefulWidget {
   final String searchTerm;
 
-  const SearchResultScreen({super.key, required this.searchTerm});
+  const SearchResultScreen({Key? key, required this.searchTerm}) : super(key: key);
 
   @override
   _SearchResultScreenState createState() => _SearchResultScreenState();
@@ -40,6 +40,7 @@ class Food {
 
 class _SearchResultScreenState extends State<SearchResultScreen> {
   List<Food> foods = []; // List of foods loaded from JSON
+  List<Food> favoriteFoods = []; // List to store favorite foods
 
   @override
   void initState() {
@@ -146,134 +147,144 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
   }
 
   void _showFoodDetails(BuildContext context, Food food) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        content: GestureDetector(
-          onTap: () {
-            // Do nothing on tap to prevent AlertDialog from closing
-          },
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  width: 160,
-                  height: 180,
-                  margin: const EdgeInsets.only(left: 1),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.asset(
-                      food.imagePath,
-                      fit: BoxFit.cover,
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          content: GestureDetector(
+            onTap: () {
+              // Do nothing on tap to prevent AlertDialog from closing
+            },
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 160,
+                    height: 180,
+                    margin: const EdgeInsets.only(left: 1),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(
+                        food.imagePath,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 2),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  const SizedBox(height: 2),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          food.foodName,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'Weights: ${food.weights}',
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: food.nutritionalContents.entries
+                              .map(
+                                (entry) => Text('${entry.key}: ${entry.value}'),
+                              )
+                              .toList(),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        food.foodName,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                      IconButton(
+                        onPressed: () async {
+                          bool isFavorite = await _isFavorite(food);
+                          if (isFavorite) {
+                            _removeFromFavorites(food); // Remove food from favorites
+                          } else {
+                            _addToFavorites(food); // Add food to favorites
+                          }
+                          Navigator.pop(context); // Close the dialog
+                          Navigator.pop(context); // Navigate back to the HomeScreen
+                        },
+                        icon: const Icon(
+                          Icons.favorite_border,
+                          color: Color.fromARGB(255, 228, 155, 19), // Set color of the icon
                         ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        'Weights: ${food.weights}',
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: food.nutritionalContents.entries
-                            .map(
-                              (entry) => Text('${entry.key}: ${entry.value}'),
-                            )
-                            .toList(),
                       ),
                     ],
                   ),
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      onPressed: () async {
-                        bool isFavorite = await _isFavorite(food);
-                        if (isFavorite) {
-                          _removeFromFavorites(food); // Remove food from favorites
-                        } else {
-                          _addToFavorites(food); // Add food to favorites
-                        }
-                        Navigator.pop(context); // Close the dialog
-                        Navigator.pop(context); // Navigate back to the HomeScreen
-                      },
-                      icon: const Icon(
-                        Icons.favorite_border,
-                        color: Color.fromARGB(255, 228, 155, 19), // Set color of the icon
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-      );
-    },
-  );
+        );
+      },
+    );
+  }
+void _addToFavorites(Food food) async {
+  final userId = FirebaseAuth.instance.currentUser!.uid;
+
+  try {
+    final favoritesRef = FirebaseFirestore.instance.collection('users').doc(userId).collection('favorites');
+
+    final docSnapshot = await favoritesRef.doc(food.foodName).get();
+
+    if (!docSnapshot.exists) {
+      await favoritesRef.doc(food.foodName).set({
+        'foodName': food.foodName,
+        'imagePath': food.imagePath,
+        'weights': food.weights,
+        'nutritionalContents': food.nutritionalContents,
+      });
+
+      // Update local state immediately
+      setState(() {
+        favoriteFoods.add(food);
+      });
+    }
+  } catch (e) {
+    print('Error adding to favorites: $e');
+  }
 }
 
-  void _addToFavorites(Food food) async {
-    final userId = FirebaseAuth.instance.currentUser!.uid;
+void _removeFromFavorites(Food food) async {
+  final userId = FirebaseAuth.instance.currentUser!.uid;
 
-    try {
-      final favoritesRef = FirebaseFirestore.instance.collection('users').doc(userId).collection('favorites');
+  try {
+    final favoritesRef = FirebaseFirestore.instance.collection('users').doc(userId).collection('favorites');
 
-      final docSnapshot = await favoritesRef.doc(food.foodName).get();
+    final docSnapshot = await favoritesRef.doc(food.foodName).get();
 
-      if (!docSnapshot.exists) {
-        await favoritesRef.doc(food.foodName).set({
-          'foodName': food.foodName,
-          'imagePath': food.imagePath,
-          'weights': food.weights,
-          'nutritionalContents': food.nutritionalContents,
-        });
-      }
-    } catch (e) {
-      print('Error adding to favorites: $e');
+    if (docSnapshot.exists) {
+      await favoritesRef.doc(food.foodName).delete();
+
+      // Update local state immediately
+      setState(() {
+        favoriteFoods.remove(food);
+      });
     }
+  } catch (e) {
+    print('Error removing from favorites: $e');
   }
+}
 
-  void _removeFromFavorites(Food food) async {
-    final userId = FirebaseAuth.instance.currentUser!.uid;
-
-    try {
-      final favoritesRef = FirebaseFirestore.instance.collection('users').doc(userId).collection('favorites');
-
-      final docSnapshot = await favoritesRef.doc(food.foodName).get();
-
-      if (docSnapshot.exists) {
-        await favoritesRef.doc(food.foodName).delete();
-      }
-    } catch (e) {
-      print('Error removing from favorites: $e');
-    }
-  }
 
   Future<bool> _isFavorite(Food food) async {
     final userId = FirebaseAuth.instance.currentUser!.uid;

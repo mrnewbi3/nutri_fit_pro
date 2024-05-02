@@ -6,13 +6,19 @@ import 'package:flutter/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore
 import 'package:firebase_auth/firebase_auth.dart'; // Import FirebaseAuth
 import 'package:nutri_fit_pro/search_result.dart';
+
 class Food {
   final String foodName;
   final String imagePath;
   final String weights;
   final Map<String, String> nutritionalContents;
 
-  Food({required this.foodName, required this.imagePath, required this.weights, required this.nutritionalContents});
+  Food({
+    required this.foodName,
+    required this.imagePath,
+    required this.weights,
+    required this.nutritionalContents,
+  });
 
   factory Food.fromJson(Map<String, dynamic> json) {
     return Food(
@@ -388,12 +394,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
       if (docSnapshot.exists) {
         await favoritesRef.doc(food.foodName).delete();
+        setState(() {
+          favoriteFoods.remove(food); // Remove from local list immediately
+        });
       } else {
         await favoritesRef.doc(food.foodName).set({
           'foodName': food.foodName,
           'imagePath': food.imagePath,
           'weights': food.weights,
           'nutritionalContents': food.nutritionalContents,
+        });
+        setState(() {
+          favoriteFoods.add(food); // Add to local list immediately
         });
       }
     } catch (e) {
