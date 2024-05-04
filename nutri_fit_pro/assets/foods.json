@@ -858,6 +858,446 @@
           "Carbs": "16.13g"
         },
         "imagePath": "assets/images/fried_peanuts.png"
-      }                                           
+      },
+      {
+        "foodName": "Bangus (Milkfish)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "148",
+          "Protein": "20.53g",
+          "Fat": "6.73g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/bangus.png"
+      },
+      {
+        "foodName": "Tilapia",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "96",
+          "Protein": "20.08g",
+          "Fat": "1.7g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/tilapia.png"
+      },
+      {
+        "foodName": "Galunggong (Round Scad)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "148",
+          "Protein": "15.45g",
+          "Fat": "8.32g",
+          "Carbs": "2.26g"
+        },
+        "imagePath": "assets/images/galunggong.png"
+      },
+      {
+        "foodName": "Tuna",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "184",
+          "Protein": "29.9g",
+          "Fat": "6.3g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/tuna.png"
+      },
+      {
+        "foodName": "Lapu-Lapu (Grouper)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "142",
+          "Protein": "26.5g",
+          "Fat": "2.5g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/lapu-lapu.png"
+      },
+      {
+        "foodName": "Tamban (Sardines)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "184",
+          "Protein": "20.5g",
+          "Fat": "10.4g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/tamban.png"
+      },
+      {
+        "foodName": "Salay-salay (Yellowtail Scad)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "95",
+          "Protein": "18.2g",
+          "Fat": "2.6g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/salay-salay.png"
+      },
+      {
+        "foodName": "Alumahan (Long-jawed Mackerel)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "179",
+          "Protein": "19.3g",
+          "Fat": "10.8g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/alumahan.png"
+      },
+      {
+        "foodName": "Malasugi (Blue Marlin)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "142",
+          "Protein": "20.8g",
+          "Fat": "6.1g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/malasugi.png"
+      },
+      {
+        "foodName": "Dilis (Anchovy)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "210",
+          "Protein": "19.9g",
+          "Fat": "15.4g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/dilis.png"
+      },
+      {
+        "foodName": "Danggit (Rabbitfish)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "175",
+          "Protein": "17.3g",
+          "Fat": "11.3g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/danggit.png"
+      },
+      {
+        "foodName": "Kitang (Spotted Scat)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "96",
+          "Protein": "19.2g",
+          "Fat": "1.4g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/kitang.png"
+      },
+      {
+        "foodName": "Pampano (Pomfret)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "106",
+          "Protein": "21.7g",
+          "Fat": "1.6g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/pampano.png"
+      },
+      {
+        "foodName": "Talakitok (Trevally)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "133",
+          "Protein": "18.5g",
+          "Fat": "6g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/talakitok.png"
+      },
+      {
+        "foodName": "Bisugo (Threadfin Bream)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "105",
+          "Protein": "18.7g",
+          "Fat": "2.9g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/bisugo.png"
+      },
+      {
+        "foodName": "Hito (Catfish)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "95",
+          "Protein": "17.8g",
+          "Fat": "2g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/hito.png"
+      },
+      {
+        "foodName": "Bangus Belly (Milkfish Belly)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "288",
+          "Protein": "20.2g",
+          "Fat": "23.4g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/bangus-belly.png"
+      },
+      {
+        "foodName": "Sapsap (Ponyfish)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "79",
+          "Protein": "15.6g",
+          "Fat": "1.9g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/sapsap.png"
+      },
+      {
+        "foodName": "Labahita (Surgeonfish)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "104",
+          "Protein": "19.9g",
+          "Fat": "2.3g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/labahita.png"
+      },
+      {
+        "foodName": "Sugpo (Prawns)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "105",
+          "Protein": "20.8g",
+          "Fat": "1.7g",
+          "Carbs": "1.4g"
+        },
+        "imagePath": "assets/images/sugpo.png"
+      },
+      {
+        "foodName": "Alimasag (Blue Crab)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "87",
+          "Protein": "18g",
+          "Fat": "1.2g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/alimasag.png"
+      },
+      {
+        "foodName": "Hipon (Shrimp)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "106",
+          "Protein": "20.3g",
+          "Fat": "1.7g",
+          "Carbs": "0.2g"
+        },
+        "imagePath": "assets/images/hipon.png"
+      },
+      {
+        "foodName": "Tahong (Mussels)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "172",
+          "Protein": "24g",
+          "Fat": "7g",
+          "Carbs": "5g"
+        },
+        "imagePath": "assets/images/tahong.png"
+      },
+      {
+        "foodName": "Talaba (Oysters)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "68",
+          "Protein": "8.5g",
+          "Fat": "2.2g",
+          "Carbs": "3.6g"
+        },
+        "imagePath": "assets/images/talaba.png"
+      },
+      {
+        "foodName": "Lobster",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "98",
+          "Protein": "20.6g",
+          "Fat": "0.9g",
+          "Carbs": "1.1g"
+        },
+        "imagePath": "assets/images/lobster.png"
+      },
+      {
+        "foodName": "Suahe (River Prawns)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "87",
+          "Protein": "20.5g",
+          "Fat": "0.7g",
+          "Carbs": "0.5g"
+        },
+        "imagePath": "assets/images/suahe.png"
+      },
+      {
+        "foodName": "Kabya (Clam)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "86",
+          "Protein": "14.6g",
+          "Fat": "1.9g",
+          "Carbs": "2.1g"
+        },
+        "imagePath": "assets/images/kabya.png"
+      },
+      {
+        "foodName": "Arurusip (Sea Grapes)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "45",
+          "Protein": "3g",
+          "Fat": "0.6g",
+          "Carbs": "8g"
+        },
+        "imagePath": "assets/images/arurusip.png"
+      },
+      {
+        "foodName": "Grilled Malasugi (Blue Marlin)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "123",
+          "Protein": "24.4g",
+          "Fat": "1.5g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/grilled_malasugi.png"
+      },
+      {
+        "foodName": "Dilis (Anchovy) Kinilaw",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "179",
+          "Protein": "20.5g",
+          "Fat": "9.9g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/dilis_kinilaw.png"
+      },
+      {
+        "foodName": "Crispy Danggit (Rabbitfish)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "272",
+          "Protein": "22.1g",
+          "Fat": "20.1g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/crispy_danggit.png"
+      },
+      {
+        "foodName": "Kitang (Spotted Scat) Paksiw",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "98",
+          "Protein": "15.7g",
+          "Fat": "2.9g",
+          "Carbs": "2.1g"
+        },
+        "imagePath": "assets/images/kitang_paksiw.png"
+      },
+      {
+        "foodName": "Grilled Bangus (Milkfish)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "206",
+          "Protein": "23.5g",
+          "Fat": "12.4g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/grilled_bangus.png"
+      },
+      {
+        "foodName": "Sinigang na Sugpo (Prawn Sour Soup)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "105",
+          "Protein": "20.8g",
+          "Fat": "1.7g",
+          "Carbs": "1.4g"
+        },
+        "imagePath": "assets/images/sinigang_na_sugpo.png"
+      },
+      {
+        "foodName": "Crispy Tilapia",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "96",
+          "Protein": "20.1g",
+          "Fat": "1.7g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/crispy_tilapia.png"
+      },
+      {
+        "foodName": "Fried Galunggong (Round Scad)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "156",
+          "Protein": "19.3g",
+          "Fat": "8.3g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/fried_galunggong.png"
+      },
+      {
+        "foodName": "Tuna Sisig",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "220",
+          "Protein": "25.4g",
+          "Fat": "11.2g",
+          "Carbs": "4.5g"
+        },
+        "imagePath": "assets/images/tuna_sisig.png"
+      },
+      {
+        "foodName": "Sinigang na Lapu-Lapu (Grouper)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "142",
+          "Protein": "26.5g",
+          "Fat": "2.5g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/sinigang_na_lapu-lapu.png"
+      },
+      {
+        "foodName": "Fried Sardines (Tamban)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "184",
+          "Protein": "20.5g",
+          "Fat": "10.4g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/fried_sardines.png"
+      },
+      {
+        "foodName": "Grilled Alumahan (Long-jawed Mackerel)",
+        "weights": "100g",
+        "nutritionalContents": {
+          "Calories": "179",
+          "Protein": "19.3g",
+          "Fat": "10.8g",
+          "Carbs": "0g"
+        },
+        "imagePath": "assets/images/grilled_alumahan.png"
+      }                                      
     ]
     
