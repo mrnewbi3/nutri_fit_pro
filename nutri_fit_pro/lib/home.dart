@@ -248,53 +248,56 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
   Widget _buildFoodCard(Food food) {
-    return GestureDetector(
-      onTap: () {
-        _showFoodDetails(food);
-      },
-      child: Container(
-        width: 155,
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 255, 249, 232),
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(10),
-            topRight: Radius.circular(10),
-            bottomLeft: Radius.circular(8), // Set bottom left corner radius to 0
-            bottomRight: Radius.circular(8),
+  return GestureDetector(
+    onTap: () {
+      _showFoodDetails(food);
+    },
+    child: Container(
+      width: 155,
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.7), // Adjust opacity as needed
+        borderRadius: BorderRadius.circular(10), // Add border radius
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5), // Add shadow color
+            blurRadius: 5.0, // Add blur radius
+            offset: const Offset(0, 2), // Add offset
           ),
-          border: Border.all(
-            color: Colors.grey,
-            width: 2.0,
-          ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              height: 120,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(8),
-                  topRight: Radius.circular(8),
-                ),
-                image: DecorationImage(
-                  image: AssetImage(food.imagePath),
-                  fit: BoxFit.cover,
-                ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            height: 120,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(10),
+              ),
+              image: DecorationImage(
+                image: AssetImage(food.imagePath),
+                fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(height: 8),
-            Text(
-              food.foodName,
-              style: const TextStyle(fontSize: 15, fontFamily: 'Signika', fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center, // Align the text to center
+          ),
+          const SizedBox(height: 8),
+          Text(
+            food.foodName,
+            style: const TextStyle(
+              fontSize: 15,
+              fontFamily: 'Signika',
+              fontWeight: FontWeight.bold,
             ),
-          ],
-        ),
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
-    );
-  }
+    ),
+  );
+}
+
 
   void _showFoodDetails(Food food) {
     showDialog(
